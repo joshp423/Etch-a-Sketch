@@ -1,14 +1,20 @@
-.square{
- border: 3px solid black;
- width: 10px;
- height: 10px;
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
+
 
 #container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 256px;
+    justify-content: center;
+    flex-grow: 1;
+    width: 500px;
+    height: 500px;
+    border: 1px solid black;
 }
 
 .activatedSquare{
