@@ -6,6 +6,8 @@ body {
 
 .buttons {
     display: flex;
+    margin-bottom: 5px;
+    margin-top: 20px;
 }
 
 #container {
