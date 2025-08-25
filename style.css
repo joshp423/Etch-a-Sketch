@@ -4,7 +4,9 @@ body {
     align-items: center;
 }
 
-
+.buttons {
+    display: flex;
+}
 
 #container {
     display: flex;

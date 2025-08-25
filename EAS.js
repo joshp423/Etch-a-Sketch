@@ -21,8 +21,6 @@ let hovered = document.querySelectorAll(".square");
 hovered.forEach((square) => {
     square.addEventListener('mouseenter', (event) => {
     let target = event.target;
-    let rgb = randomColour();
-    target.style.backgroundColor = `${rgb}`
     target.classList.add("activatedSquare");
     });
 });
@@ -52,11 +50,40 @@ resetButton.addEventListener('click', (event) => {
     hovered.forEach((square) => {
         square.addEventListener('mouseenter', (event) => {
         let target = event.target;
-        let rgb = randomColour();
-        target.style.backgroundColor = `${rgb}`
         target.classList.add("activatedSquare");
         });
     });
 });
+
+let onOff = "off"
+const rgbButton = document.getElementById("rgb");
+rgbButton.addEventListener('click', (event) =>{
+    if (onOff ==="off") {
+        onOff = "on";
+        rgbButton.style.backgroundColor = "green"
+        let hovered = document.querySelectorAll(".square");
+        hovered.forEach((square) => {
+            square.addEventListener('mouseenter', (event) => {
+                let target = event.target;
+                let rgb = randomColour();
+                target.style.backgroundColor = `${rgb}`
+                target.classList.add("activatedSquare");
+            })
+        });
+    }
+    else {
+        onOff = "off";
+        rgbButton.style.backgroundColor = "white"
+        let hovered = document.querySelectorAll(".square");
+        hovered.forEach((square) => {
+            square.addEventListener('mouseenter', (event) => {
+                let target = event.target;
+                target.style.backgroundColor = "black"
+                target.classList.add("activatedSquare");
+            });
+        });
+    }
+});
+
 
 
