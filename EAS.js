@@ -14,7 +14,6 @@ while (counter < 256) {
     twelveDivs.style.width = "31.25px"
     twelveDivs.style.height = "31.25px"
     counter++;
-    console.log(counter)
 }
 
 let hovered = document.querySelectorAll(".square");
@@ -71,6 +70,50 @@ rgbButton.addEventListener('click', (event) =>{
             })
         });
     }
+    else if (onOffrgb = "on" && onOffOpacity === "on") {
+        onOffrgb = "off";
+        rgbButton.style.backgroundColor = "white"
+        let hovered = document.querySelectorAll(".square");
+        hovered.forEach((square) => {
+            let hoverCounter = 0;
+            square.addEventListener('mouseenter', (event) => {
+                let target = event.target;
+                if (hoverCounter === 0) {
+                    target.style.opacity = "0.1";
+                }
+                else if (hoverCounter === 1) {
+                    target.style.opacity = "0.2";
+                }
+                else if (hoverCounter === 2) {
+                    target.style.opacity = "0.3";
+                }
+                else if (hoverCounter === 3) {
+                    target.style.opacity = "0.4";
+                }
+                else if (hoverCounter === 4) {
+                    target.style.opacity = "0.5";
+                }
+                else if (hoverCounter === 5) {
+                    target.style.opacity = "0.6";
+                }
+                else if (hoverCounter === 6) {
+                    target.style.opacity = "0.7";
+                }
+                else if (hoverCounter === 7) {
+                    target.style.opacity = "0.8";
+                }
+                else if (hoverCounter === 8) {
+                    target.style.opacity = "0.9";
+                }
+                else if (hoverCounter >= 9) {
+                    target.style.opacity = "1";
+                }
+                target.classList.add("activatedSquare");
+                target.style.backgroundColor = "black";
+                hoverCounter +=1;
+            })
+        })
+    }
     else {
         onOffrgb = "off";
         rgbButton.style.backgroundColor = "white"
@@ -84,6 +127,7 @@ rgbButton.addEventListener('click', (event) =>{
         });
     }
 });
+
 let onOffOpacity = "off";
 const opacityButton = document.getElementById("opacity");
 opacityButton.addEventListener('click', (event) =>{
@@ -127,9 +171,22 @@ opacityButton.addEventListener('click', (event) =>{
                 }
                 target.classList.add("activatedSquare");
                 hoverCounter +=1;
-                console.log(hoverCounter)
             })
         });
+    }
+    else if (onOffOpacity = "on" && onOffrgb === "on") {
+        onOffOpacity = "off";
+        opacityButton.style.backgroundColor = "white"
+        let hovered = document.querySelectorAll(".square");
+        hovered.forEach((square) => {
+            square.addEventListener('mouseenter', (event) => {
+                let target = event.target;
+                target.style.opacity = "1";
+                target.classList.add("activatedSquare");
+                let rgb = randomColour();
+                target.style.backgroundColor = `${rgb}`;
+            })
+        })
     }
     else {
         onOffOpacity = "off";
@@ -138,7 +195,7 @@ opacityButton.addEventListener('click', (event) =>{
         hovered.forEach((square) => {
             square.addEventListener('mouseenter', (event) => {
                 let target = event.target;
-                target.style.backgroundColor = "black"
+                target.style.backgroundColor = "black";
                 target.style.opacity = "1";
                 target.classList.add("activatedSquare");
             });
